@@ -187,9 +187,24 @@ ul li:hover {
     flex-direction: column;
     justify-content: space-between;
     width: 100%;
-
-
 }
+.accueil-container-img{
+    margin-top: 10vh;
+    height: 40vh;
+}
+.accueil-container-img img{
+    width: 33vw;
+}
+.accueil-container-paragraphe-img{
+    height:20vh;
+    margin-top: 10vh;
+}
+.accueil-container-paragraphe-img p{
+    font-size: 40px;
+    color: black;
+    font-family:  "Poppins", sans-serif; ;
+}
+
 @media only screen and (max-width: 850px) {
     header nav {
         display: none;
