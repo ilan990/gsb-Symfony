@@ -199,7 +199,7 @@ ul li:hover {
 
 }
 .accueil-statistiques img{
-    width:40%;
+    width:15%;
 }
 .accueil-btn{
     display: flex;
@@ -224,6 +224,11 @@ ul li:hover {
     font-family: sans-serif;
 }
 
+@media only screen and (max-height: 760px) {
+    .accueil-statistiques,.accueil-ajout,.accueil-liste{
+        font-size: 1.5vh;
+    }
+}
 @media only screen and (max-width: 850px) {
     header nav {
         display: none;
@@ -245,4 +250,5 @@ ul li:hover {
         width:90%;
     }
 }
+
 
