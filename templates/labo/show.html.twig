@@ -1,0 +1,30 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Labo{% endblock %}
+
+{% block body %}
+    <h1>Labo</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ labo.id }}</td>
+            </tr>
+            <tr>
+                <th>Nom</th>
+                <td>{{ labo.nom }}</td>
+            </tr>
+            <tr>
+                <th>ChefVente</th>
+                <td>{{ labo.chefVente }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('labo_index') }}">back to list</a>
+
+    <a href="{{ path('labo_edit', {'id': labo.id}) }}">edit</a>
+
+    {{ include('labo/_delete_form.html.twig') }}
+{% endblock %}
