@@ -35,7 +35,7 @@ class Visiteur
     /**
      * @ORM\Column(type="string", length=5)
      */
-    private $codepostal;
+    private $codePostal;
 
     /**
      * @ORM\Column(type="string", length=30)
@@ -43,9 +43,19 @@ class Visiteur
     private $ville;
 
     /**
-     * @ORM\Column(type="date")
+     * @ORM\Column(type="datetime")
      */
-    private $date_embauche;
+    private $dateEmbauche;
+
+    /**
+     * @ORM\Column(type="integer")
+     */
+    private $codeSecteur;
+
+    /**
+     * @ORM\Column(type="integer")
+     */
+    private $laboCode;
 
     public function getId(): ?int
     {
@@ -88,14 +98,14 @@ class Visiteur
         return $this;
     }
 
-    public function getCodepostal(): ?string
+    public function getCodePostal(): ?string
     {
-        return $this->codepostal;
+        return $this->codePostal;
     }
 
-    public function setCodepostal(string $codepostal): self
+    public function setCodePostal(string $codePostal): self
     {
-        $this->codepostal = $codepostal;
+        $this->codePostal = $codePostal;
 
         return $this;
     }
@@ -114,12 +124,36 @@ class Visiteur
 
     public function getDateEmbauche(): ?\DateTimeInterface
     {
-        return $this->date_embauche;
+        return $this->dateEmbauche;
     }
 
-    public function setDateEmbauche(\DateTimeInterface $date_embauche): self
+    public function setDateEmbauche(\DateTimeInterface $dateEmbauche): self
     {
-        $this->date_embauche = $date_embauche;
+        $this->dateEmbauche = $dateEmbauche;
+
+        return $this;
+    }
+
+    public function getCodeSecteur(): ?int
+    {
+        return $this->codeSecteur;
+    }
+
+    public function setCodeSecteur(int $codeSecteur): self
+    {
+        $this->codeSecteur = $codeSecteur;
+
+        return $this;
+    }
+
+    public function getLaboCode(): ?int
+    {
+        return $this->laboCode;
+    }
+
+    public function setLaboCode(int $laboCode): self
+    {
+        $this->laboCode = $laboCode;
 
         return $this;
     }
