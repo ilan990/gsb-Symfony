@@ -320,12 +320,29 @@ ul li:hover {
     background-color: white;
     border-radius: 25px;
     text-align: center;
-
 }
+
+
 
 .alignDiv{
     height:90vh;
     display: flex;
     justify-content: center;
     align-items: center;
+}
+input{
+    background-color: #DDE0E2;
+    border-radius: 50px;
+    border: #DDE0E2;
+    height: 20px;
+}
+.btn{
+    background-color: white;
+    border-radius: 50px;
+    border: #5988FF;
+    border-style: solid;
+    border-width: thin;
+    height: 25px;
+    width: 15vh;
+    color: #5988FF;
 }

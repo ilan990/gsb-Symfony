@@ -3,9 +3,10 @@
 {% block title %}New Visiteur{% endblock %}
 
 {% block body %}
-    <h1>Create new Visiteur</h1>
-
-    {{ include('visiteur/_form.html.twig') }}
-
-    <a href="{{ path('visiteur_index') }}">back to list</a>
+    <div class="alignDiv">
+        <div class="modalAjout" height = "100">
+            <h1>Entrer les informations de visiteur</h1><br>
+            {{ include('visiteur/_form.html.twig') }}
+        </div>
+    </div>
 {% endblock %}
