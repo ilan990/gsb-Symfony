@@ -47,4 +47,9 @@ class VisiteurRepository extends ServiceEntityRepository
         ;
     }
     */
+    /*
+     * Select * from Visiteur,labo,secteur where Visiteur.id_labo = labo.id AND Visiteur.id_secteur = secteur_id
+     *
+     *
+     */
 }
