@@ -35,7 +35,7 @@ header {
     color: #fefefe;
 }
 
-ul {
+nav ul, .mobile-menu ul {
     list-style: none;
     height: 100%;
     display: flex;
@@ -43,16 +43,16 @@ ul {
     justify-content: space-around;
 }
 
-ul a {
+header a {
     color: white;
 }
 
-ul li {
+header ul li {
     padding: 5px;
     margin-left: 10px;
 }
 
-ul li:hover {
+header ul li:hover {
     transform: scale(1.1);
     transition: 0.3s;
 }
