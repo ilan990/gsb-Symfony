@@ -19,6 +19,18 @@ class VisiteurRepository extends ServiceEntityRepository
         parent::__construct($registry, Visiteur::class);
     }
 
+    public function findByLabAndSecteur(){
+        $entityManager = $this->getEntityManager();
+
+        $query = $entityManager->createQuery(
+            dql:'select v, l.nom, s.libelle	
+            from App\Entity\Visiteur AS v, App\Entity\Labo AS l, App\Entity\Secteur s
+            Where v.codeSecteur = s.id And v.laboCode	= l.id'
+        );
+
+        return $query->getResult();
+    }
+
     // /**
     //  * @return Visiteur[] Returns an array of Visiteur objects
     //  */
