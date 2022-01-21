@@ -23,4 +23,11 @@ class HomeController extends AbstractController
             'controller_name' => 'HomeController',
         ]);
     }
+    #[Route('/listeMain', name: 'listeMain')]
+    public function liste(): Response
+    {
+        return $this->render('home/liste.html.twig', [
+            'controller_name' => 'HomeController',
+        ]);
+    }
 }

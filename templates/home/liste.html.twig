@@ -1,0 +1,32 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Ajout{% endblock %}
+
+{% block body %}
+    <div class="controllerAjout">
+        <div class="titleAjout">
+            <h1>LISTER</h1>
+            <p>Que souhaitez-vous lister aujourd'hui?</p>
+        </div>
+        <div class="bouttonsAjout">
+            <div onclick="location.href='/visiteur'" class="ajout-visiteur">
+                <img src="img/tabletteTel.png" alt="image illustrant un telephone avec un visiteur"/>
+                <h3>VISITEUR</h3>
+                <p>Lister un visiteur dans votre région</p>
+            </div>
+            <div onclick="location.href='/region'" class="ajout-region">
+                <img src="img/trousseSecours.png" alt="trousse de secours">
+                <h3>REGION</h3>
+                <p>Lister une région dans votre secteur</p>
+            </div>
+            <div onclick="location.href='/secteur'" class="ajout-secteur">
+                <img src="img/imgBddSecteur.png" alt="Base de données">
+                <h3>SECTEUR</h3>
+                <p>Lister un secteur dans votre base de données</p>
+            </div>
+        </div>
+
+    </div>
+
+
+{% endblock %}
