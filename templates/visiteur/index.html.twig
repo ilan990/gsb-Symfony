@@ -1,7 +1,51 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello VisiteurController!{% endblock %}
+{% block title %}Visiteur index{% endblock %}
 
 {% block body %}
-    {% include('/navbar.html.twig') %}
+
+    <h1>Visiteur index</h1>
+
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nom</th>
+                <th>Prenom</th>
+                <th>Adresse</th>
+                <th>CodePostal</th>
+                <th>Ville</th>
+                <th>DateEmbauche</th>
+                <th>CodeSecteur</th>
+                <th>LaboCode</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for visiteur in visiteurs %}
+            <tr>
+                <td>{{ visiteur.id }}</td>
+                <td>{{ visiteur.nom }}</td>
+                <td>{{ visiteur.prenom }}</td>
+                <td>{{ visiteur.adresse }}</td>
+                <td>{{ visiteur.codePostal }}</td>
+                <td>{{ visiteur.ville }}</td>
+                <td>{{ visiteur.dateEmbauche ? visiteur.dateEmbauche|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ visiteur.codeSecteur }}</td>
+                <td>{{ visiteur.laboCode }}</td>
+                <td>
+                    <a href="{{ path('visiteur_show', {'id': visiteur.id}) }}">show</a>
+                    <a href="{{ path('visiteur_edit', {'id': visiteur.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="10">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('visiteur_new') }}">Create new</a>
 {% endblock %}

@@ -15,4 +15,12 @@ class HomeController extends AbstractController
             'controller_name' => 'HomeController',
         ]);
     }
+
+    #[Route('/ajoutMain', name: 'ajoutMain')]
+    public function ajout(): Response
+    {
+        return $this->render('home/ajout.html.twig', [
+            'controller_name' => 'HomeController',
+        ]);
+    }
 }

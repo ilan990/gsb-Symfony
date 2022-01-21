@@ -1,5 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap");
-
+@import url('https://fonts.googleapis.com/css2?family=Mulish&display=swap');
 * {
     padding: 0;
     margin: 0;
@@ -8,8 +7,8 @@
 
 body {
     background-color: #ECF1FA;
-    color: white;
-    font-family: "Poppins", sans-serif;
+    color: black;
+    font-family: 'Mulish', sans-serif;
 }
 
 header a {
@@ -218,12 +217,55 @@ header ul li:hover {
     height:20vh;
     margin-top: 10vh;
 }
-.accueil-container-paragraphe-img p{
+.accueil-container-paragraphe-img p {
     font-size: 3vw;
     color: #363636;
     font-family: sans-serif;
 }
 
+.controllerAjout{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    text-align: center;
+    align-items: center;
+    height: 90vh;
+    width: 100vw;
+}
+.titleAjout{
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    margin-top: 10vh;
+}
+.bouttonsAjout{
+    width: 85vw;
+    display:flex;
+    justify-content: space-around;
+
+}
+.ajout-region,.ajout-secteur,.ajout-visiteur{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    height: 33vh;
+    width: 43vw;
+    align-items: center;
+    background-color: white;
+    border-radius: 15px;
+    margin: 0 5vw 10vh 5vw;
+    cursor:pointer;
+}
+.titleAjout h1{
+    margin-bottom: 1vh;
+}
+.ajout-region img,.ajout-secteur img,.ajout-visiteur img{
+    height:126px;
+    width:125px;
+}
+.ajout-region p,.ajout-secteur p,.ajout-visiteur p{
+    margin-bottom: 2vh;
+}
 @media only screen and (max-height: 760px) {
     .accueil-statistiques,.accueil-ajout,.accueil-liste{
         font-size: 1.5vh;
@@ -249,6 +291,58 @@ header ul li:hover {
     .accueil-choix{
         width:90%;
     }
+    .bouttonsAjout{
+        flex-direction: column;
+        width:50vw;
+
+    }
+    .ajout-visiteur,.ajout-secteur,.ajout-region{
+        margin: 0 5vw 1vh 5vw;
+        height:23vh;
+        width: 80vw;
+    }
+    .ajout-region img, .ajout-secteur img, .ajout-visiteur img{
+        height: 50px;
+        width: 50px;
+    }
+    .titleAjout{
+        margin-top: 1vh;
+    }
+    .bouttonsAjout{
+        width: 85vw;
+    }
+
+}
+
+.modalAjout{
+    height:50vh;
+    width: 80vh;
+    background-color: white;
+    border-radius: 25px;
+    text-align: center;
 }
 
 
+
+.alignDiv{
+    height:90vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+input{
+    background-color: #DDE0E2;
+    border-radius: 50px;
+    border: #DDE0E2;
+    height: 20px;
+}
+.btn{
+    background-color: white;
+    border-radius: 50px;
+    border: #5988FF;
+    border-style: solid;
+    border-width: thin;
+    height: 25px;
+    width: 15vh;
+    color: #5988FF;
+}

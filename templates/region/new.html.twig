@@ -1,0 +1,14 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New Region{% endblock %}
+
+{% block body %}
+    <div class="alignDiv">
+        <div class="modalAjout">
+            <h1>Quelle région</h1><br>
+            <h1>souhaitez-vous ajouter?</h1>
+
+            {{ include('region/_form.html.twig') }}
+        </div>
+    </div>
+{% endblock %}
