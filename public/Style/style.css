@@ -117,13 +117,14 @@ header ul li:hover {
 .mobile-menu {
     display: none;
     position: absolute;
-    top: 50px;
+    top:9vh;
     left: 0;
     height: calc(100vh - 50px);
     width: 100%;
 }
 
 .mobile-menu li {
+    list-style: none;
     margin-bottom: 10px;
 }
 
