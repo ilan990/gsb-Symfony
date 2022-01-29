@@ -19,6 +19,18 @@ class RegionRepository extends ServiceEntityRepository
         parent::__construct($registry, Region::class);
     }
 
+    public function findBySecteur(){
+        $entityManager = $this->getEntityManager();
+
+        $query = $entityManager->createQuery(
+            dql:'select r, s.libelle	
+            from App\Entity\Region AS r, App\Entity\Secteur AS s
+            Where v.codeSecteur = s.id And v.laboCode	= l.id'
+        );
+
+        return $query->getResult();
+    }
+
     // /**
     //  * @return Region[] Returns an array of Region objects
     //  */
