@@ -16,8 +16,9 @@ class VisiteurController extends AbstractController
     #[Route('/', name: 'visiteur_index', methods: ['GET'])]
     public function index(VisiteurRepository $visiteurRepository): Response
     {
+        $visitorAll = $visiteurRepository->findByLabAndSecteur();
         return $this->render('visiteur/index.html.twig', [
-            'visiteurs' => $visiteurRepository->findAll(),
+            'visiteurs' => $visitorAll,
         ]);
     }
 
