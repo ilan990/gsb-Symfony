@@ -8,9 +8,7 @@ git repo -
 
 ## TO DO LIST
 
-1. Authentication
-2. relation between button
-3. Add [Secteur/Région/Utilisateur]
-4. Ajouter Menu
-5. Liste
+1. Reactive login statement / Authentication
+2. Drop down Menu
+5. General CSS 
 6. Statistique
