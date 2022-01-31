@@ -6,12 +6,10 @@
 <div class="alignDiv">
     <div class="modalAjout">
     <h1>Edit Region</h1>
-
+    <br><br>
     {{ include('region/_form.html.twig', {'button_label': 'Update'}) }}
-
-    <a href="{{ path('region_index') }}">back to list</a>
-
     {{ include('region/_delete_form.html.twig') }}
+        <a href="{{ path('region_index') }}">back to list</a>
     </div>
 </div>
 {% endblock %}
