@@ -178,13 +178,14 @@ header ul li:hover {
     flex-direction: column;
     color: #363636;
     padding: 1vh;
+    padding-left: 4vh;
     font-size: 15px;
     text-align:left;
     font-family: sans-serif;
     cursor:pointer;
 }
 .accueil-liste img,.accueil-ajout img,.accueil-statistiques img{
-    width:42%;
+    width:38%;
     height:auto
 }
 .accueil-statistiques{
@@ -341,7 +342,10 @@ input{
     background-color: #DDE0E2;
     border-radius: 50px;
     border: #DDE0E2;
-    height: 20px;
+    height: 25px;
+    margin: 5px;
+    width: 35vh;
+    padding-left: 13px;
 }
 .btn{
     color: white;
@@ -444,4 +448,8 @@ table th {
     table td:last-child {
         border-bottom: 0;
     }
+
+}
+.icon{
+    width: 10vh;
 }

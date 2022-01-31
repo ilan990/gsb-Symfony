@@ -22,8 +22,7 @@
                 <td>{{ region[0].NomRegion}}</td>
 {# why should we right NomRegion instead of nom_region?#}
                 <td>
-                    <a href="{{ path('region_show', {'id': region[0].id}) }}">show</a>
-                    <a href="{{ path('region_edit', {'id': region[0].id}) }}">edit</a>
+                    <a href="{{ path('region_edit', {'id': region[0].id}) }}"><img class="icon" src="img/edit.png"></a>
                 </td>
             </tr>
         {% else %}
