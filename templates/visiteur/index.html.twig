@@ -31,12 +31,12 @@
                 <td>{{ visiteur[0].adresse }}</td>
                 <td>{{ visiteur[0].codePostal }}</td>
                 <td>{{ visiteur[0].ville }}</td>
-                <td>{{ visiteur[0].dateEmbauche ? visiteur.dateEmbauche|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ visiteur[0].dateEmbauche is empty ? "" : visiteur[0].dateEmbauche|date("m/d/Y") }}</td>
                 <td>{{ visiteur['libelle']}}</td>
                 <td>{{ visiteur['nom']}}</td>
                 <td>
-                    <a href="{{ path('visiteur_show', {'id': visiteur.id}) }}">show</a>
-                    <a href="{{ path('visiteur_edit', {'id': visiteur.id}) }}">edit</a>
+                    <a href="{{ path('visiteur_show', {'id': visiteur[0].id}) }}">show</a>
+                    <a href="{{ path('visiteur_edit', {'id': visiteur[0].id}) }}">edit</a>
                 </td>
             </tr>
         {% else %}

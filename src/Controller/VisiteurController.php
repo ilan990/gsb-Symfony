@@ -17,8 +17,6 @@ class VisiteurController extends AbstractController
     public function index(VisiteurRepository $visiteurRepository): Response
     {
         $visitorAll = $visiteurRepository->findByLabAndSecteur();
-        dd($visitorAll);
-
         return $this->render('visiteur/index.html.twig', [
             'visiteurs' => $visitorAll,
         ]);

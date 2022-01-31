@@ -16,15 +16,16 @@ class RegionController extends AbstractController
     #[Route('/', name: 'region_index', methods: ['GET'])]
     public function index(RegionRepository $regionRepository): Response
     {
+        $regionAll = $regionRepository->findBySecteur();
         return $this->render('region/index.html.twig', [
-            'regions' => $regionRepository->findAll(),
+            'regions' => $regionAll,
         ]);
     }
 
     #[Route('/new', name: 'region_new', methods: ['GET','POST'])]
     public function new(Request $request): Response
     {
-        $region = new Region();
+        $region = new Region    ();
         $form = $this->createForm(RegionType::class, $region);
         $form->handleRequest($request);
 

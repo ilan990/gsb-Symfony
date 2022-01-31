@@ -16,8 +16,9 @@ class SecteurController extends AbstractController
     #[Route('/', name: 'secteur_index', methods: ['GET'])]
     public function index(SecteurRepository $secteurRepository): Response
     {
+        $secteurAll = $secteurRepository->findEverything();
         return $this->render('secteur/index.html.twig', [
-            'secteurs' => $secteurRepository->findAll(),
+            'secteurs' => $secteurAll,
         ]);
     }
 
