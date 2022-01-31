@@ -4,34 +4,7 @@
 
 {% block body %}
     <h1>Visiteur</h1>
-    <table>
-        <caption>Statement Summary</caption>
-        <thead>
-        <tr>
-            <th scope="col">Id</th>
-            <th scope="col">Nom</th>
-            <th scope="col">Prenom</th>
-            <th scope="col">Adresse</th>
-            <th scope="col">Code Postale</th>
-            <th scope="col">Ville</th>
-            <th scope="col">Date mbauche</th>
-            <th scope="col">Secteur</th>
-            <th scope="col">Labo</th>
-        </tr>
-        </thead>
-        <tbody>
-        <tr>
-            <td data-label="ID">{{ visiteur.id }}</td>
-            <td data-label="Nom">{{ visiteur.nom }}</td>
-            <td data-label="Prenom">{{ visiteur.prenom }}</td>
-            <td data-label="Adresse">{{ visiteur.adresse }}</td>
-            <td data-label="Code Postale">{{ visiteur.codePostal }}</td>
-            <td data-label="Ville">{{ visiteur.ville }}</td>
-            <td data-label="Date Embauche">{{ visiteur.dateEmbauche ? visiteur.dateEmbauche|date('Y-m-d H:i:s') : '' }}</td>
-            <td data-label="Secteur">{{ visiteur.codeSecteur }} </td>
-            <td data-label="Labo">{{ visiteur.laboCode }} </td>
-        </tr>
-        </tbody>
+
     </table>
    <!-- <table class="table">
         <tbody>

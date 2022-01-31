@@ -396,7 +396,7 @@ table th {
     text-transform: uppercase;
 }
 
-@media screen and (max-width: 1358px) {
+@media screen and (max-width: 800px) {
     table {
         border: 0;
     }
