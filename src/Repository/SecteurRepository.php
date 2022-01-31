@@ -18,6 +18,17 @@ class SecteurRepository extends ServiceEntityRepository
     {
         parent::__construct($registry, Secteur::class);
     }
+    public function findEverything(){
+        $entityManager = $this->getEntityManager();
+
+        $query = $entityManager->createQuery(
+            dql:'select s
+            from App\Entity\Secteur AS s'
+        );
+
+        return $query->getResult();
+    }
+
 
     // /**
     //  * @return Secteur[] Returns an array of Secteur objects

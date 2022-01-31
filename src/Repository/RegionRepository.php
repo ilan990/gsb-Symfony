@@ -25,7 +25,7 @@ class RegionRepository extends ServiceEntityRepository
         $query = $entityManager->createQuery(
             dql:'select r, s.libelle	
             from App\Entity\Region AS r, App\Entity\Secteur AS s
-            Where v.codeSecteur = s.id And v.laboCode	= l.id'
+            Where r.code_secteur = s.id'
         );
 
         return $query->getResult();

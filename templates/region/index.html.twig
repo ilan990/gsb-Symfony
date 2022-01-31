@@ -9,7 +9,7 @@
         <thead>
             <tr>
                 <th>Id</th>
-                <th>Code_secteur</th>
+                <th>secteur</th>
                 <th>Nom_region</th>
                 <th>actions</th>
             </tr>
@@ -17,12 +17,13 @@
         <tbody>
         {% for region in regions %}
             <tr>
-                <td>{{ region.id }}</td>
-                <td>{{ region.codeSecteur }}</td>
-                <td>{{ region.nomRegion }}</td>
+                <td>{{ region[0].id }}</td>
+                <td>{{ region['libelle']}}</td>
+                <td>{{ region[0].NomRegion}}</td>
+{# why should we right NomRegion instead of nom_region?#}
                 <td>
-                    <a href="{{ path('region_show', {'id': region.id}) }}">show</a>
-                    <a href="{{ path('region_edit', {'id': region.id}) }}">edit</a>
+                    <a href="{{ path('region_show', {'id': region[0].id}) }}">show</a>
+                    <a href="{{ path('region_edit', {'id': region[0].id}) }}">edit</a>
                 </td>
             </tr>
         {% else %}
