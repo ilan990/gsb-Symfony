@@ -22,5 +22,14 @@ class LoginController extends AbstractController
                            'last_username' => $lastUsername,
                            'error'         => $error,
           ]);
+
+
+    }
+    #[Route('/loginRecuperation', name: 'loginRecuperation')]
+    public function loginRecuperation(): Response
+    {
+        return $this->render('login/loginRecuperation.html.twig', [
+            'controller_name' => 'LoginController',
+        ]);
     }
 }

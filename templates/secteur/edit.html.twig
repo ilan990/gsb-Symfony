@@ -3,11 +3,16 @@
 {% block title %}Edit Secteur{% endblock %}
 
 {% block body %}
+<div class="alignDiv">
+    <div class="modalAjout">
     <h1>Edit Secteur</h1>
-
+    <br><br>
     {{ include('secteur/_form.html.twig', {'button_label': 'Update'}) }}
-
-    <a href="{{ path('secteur_index') }}">back to list</a>
-
     {{ include('secteur/_delete_form.html.twig') }}
+
+        <a href="{{ path('secteur_index') }}">back to list</a>
+
+    </div>
+</div>
+
 {% endblock %}
