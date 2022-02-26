@@ -40,3 +40,5 @@ security:
     access_control:
         # - { path: ^/admin, roles: ROLE_ADMIN }
         - { path: ^/visiteur, roles: ROLE_USER }
+        - { path: ^/secteur, roles: ROLE_USER }
+        - { path: ^/region, roles: ROLE_USER }

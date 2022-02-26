@@ -444,6 +444,12 @@ table th {
     table td:last-child {
         border-bottom: 0;
     }
+    .login-design{
+        flex-direction: column;
+    }
+    .login-design input{
+        width: 43vw;
+    }
 }
 .login-design{
     display: flex;
