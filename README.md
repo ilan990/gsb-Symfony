@@ -1,16 +1,18 @@
-## Introduction
+## PROJET GSB
 
-## Requirements
+
 
 ## Installation
+```
 
-git repo -
+$ git clone <URL GITHUB>
+$ mv .env_exemple .env
+$ composer install
+$ symfony console doctrine:migrations:migrate
+$ symfony console doctrine:fixtures:load
 
+```
 ## TO DO LIST
 
-1. Authentication
-2. relation between button
-3. Add [Secteur/Région/Utilisateur]
-4. Ajouter Menu
-5. Liste
+2. Drop down Menu
 6. Statistique

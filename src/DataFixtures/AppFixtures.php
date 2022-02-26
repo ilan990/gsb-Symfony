@@ -21,14 +21,19 @@ class AppFixtures extends Fixture
     // ...
     public function load(ObjectManager $manager)
     {
-        $user = new User();
-        $user->setEmail('benoit@foujols.com');
+        $tabUser=['ilan_assouline@hotmail.fr'];
+        foreach ($tabUser as $mail) {
+            $user = new User();
+            $user->setEmail($mail);
 
-        $password = $this->hasher->hashPassword($user, 'azerty');
-        $user->setPassword($password);
+            //On hash le password 'azerty'
+            $password = $this->hasher->hashPassword($user, 'azerty');
+            $user->setPassword($password);
 
-        $manager->persist($user);
-        $manager->flush();
+            //On envoie en base de données
+            $manager->persist($user);
+            $manager->flush();
+        }
     }
 }
 
