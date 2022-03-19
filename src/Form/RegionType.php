@@ -15,14 +15,7 @@ class RegionType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-            ->add('codeSecteur', EntityType::class, [
-                    'class' => Secteur::class,
-                    'choice_value' => 'id',
-                    'choice_label' => function (Secteur $sec) {
-                        return $sec->getLibelle();
-                    }
-                ]
-            )
+            ->add('CodeSecteur')
             ->add('nom_region')
         ;
     }

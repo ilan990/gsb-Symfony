@@ -16,20 +16,28 @@ class RegionController extends AbstractController
     #[Route('/', name: 'region_index', methods: ['GET'])]
     public function index(RegionRepository $regionRepository): Response
     {
+
         $regionAll = $regionRepository->findBySecteur();
+
         return $this->render('region/index.html.twig', [
             'regions' => $regionAll,
         ]);
     }
 
     #[Route('/new', name: 'region_new', methods: ['GET','POST'])]
-    public function new(Request $request): Response
+    public function new(Request $request, RegionRepository $regionRepository): Response
     {
-        $region = new Region    ();
-        $form = $this->createForm(RegionType::class, $region);
-        $form->handleRequest($request);
 
-        if ($form->isSubmitted() && $form->isValid()) {
+
+        $nameSecteur = $regionRepository -> NameSecteur();
+
+        $region= new Region();
+
+        if ($request->request->get("region")){
+            $region= new Region();
+
+            $region->setCodeSecteur($request->request->get("code_secteur"));
+            $region->setNomRegion($request->request->get("region")["nom_region"]);
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($region);
             $entityManager->flush();
@@ -38,9 +46,11 @@ class RegionController extends AbstractController
         }
 
         return $this->renderForm('region/new.html.twig', [
+            //'form' => $form,
+            'nameSecteur' => $nameSecteur,
             'region' => $region,
-            'form' => $form,
         ]);
+
     }
 
     #[Route('/{id}', name: 'region_show', methods: ['GET'])]

@@ -27,9 +27,18 @@ class RegionRepository extends ServiceEntityRepository
             from App\Entity\Region AS r, App\Entity\Secteur AS s
             Where r.code_secteur = s.id'
         );
-
         return $query->getResult();
     }
+    public function NameSecteur(){
+        $entityManager = $this->getEntityManager();
+
+        $query = $entityManager->createQuery(
+            dql:'select s.id,s.libelle from
+            App\Entity\Secteur AS s'
+        );
+        return $query->getResult();
+    }
+
 
     // /**
     //  * @return Region[] Returns an array of Region objects

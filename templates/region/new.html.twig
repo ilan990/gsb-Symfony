@@ -5,12 +5,38 @@
 {% block body %}
     <div class="alignDiv">
         <div class="modalAjout">
-            <div style="margin-top: 20px" >
-            <h1>Quelle région</h1><br>
-            <h1>souhaitez-vous ajouter?</h1>
+            <div style="margin-top: 20px">
+                <h1>Quelle région</h1><br>
+                <h1>souhaitez-vous ajouter?</h1>
             </div>
-            <div style="margin-top: 60px" >
-            {{ include('region/_form.html.twig') }}
+            <div style="margin-top: 60px">
+                <form name="region" method="post">
+                    <div id="region">
+
+                        <div><label for="region_CodeSecteur">Code secteur</label>
+                            <select name="code_secteur" >
+                                {% for name in nameSecteur %}
+                                    <option value="{{ name["id"] }}">{{ name["libelle"] }}</option>
+                                {%  endfor %}
+                            </select>
+                        </div>
+                        <div><label for="region_nom_region" class="required">Nom region</label><input type="text"
+                                                                                                      id="region_nom_region"
+                                                                                                      name="region[nom_region]"
+                                                                                                      required="required"
+                                                                                                      maxlength="50"/>
+                        </div>
+                        {#  <input type="hidden" id="region__token" name="region[_token]"
+                               value="6d65f046e9f0be31454e9838df47f.vNZesih5sBJLSp8L3RFdT8IrrT0XZv67jFfSolvekRQ.9Z07_0A3xHl5EPg4hFo7eqdGwAxGCovRxQSYyASapCHfgwqFeD2HQS8Frw"/>#}
+                    </div>
+                    <div style="margin-top: 60px">
+                        <button class="btn">INSERER</button>
+                    </div>
+                </form>
+
+
+
+
             </div>
         </div>
     </div>

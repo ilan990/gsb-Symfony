@@ -5,6 +5,9 @@
     margin: 0;
     box-sizing: border-box;
 }
+h4{
+    margin: 5px 0;
+}
 
 body {
     background-color: #ECF1FA;
@@ -64,7 +67,7 @@ header ul li:hover {
 }
 
 #login {
-    border: 1px solid #498afb;
+    border: 1px solid green;
 }
 
 #signup {
@@ -185,8 +188,8 @@ header ul li:hover {
     cursor:pointer;
 }
 .accueil-liste img,.accueil-ajout img,.accueil-statistiques img{
-    width:38%;
-    height:auto
+    height:auto;
+    width: 80px;
 }
 .accueil-statistiques{
     width:100%;
@@ -355,7 +358,6 @@ input{
     width: 30vh;
     border: none;
     position: relative;
-    width: 30vh;
     transition: all .2s ease-out;
     -webkit-transition: all .2s ease-out;
     box-shadow: 0 0 .25em #333;
@@ -373,19 +375,47 @@ table {
     border-collapse: collapse;
     margin: 0;
     padding: 0;
-    width: 100%;
+    width: 96%;
     table-layout: fixed;
+    margin: 2%;
+    box-shadow: 12px 7px 22px #c0d1f1;
+
 }
 
 table caption {
     font-size: 1.5em;
     margin: .5em 0 .75em;
 }
+.button-new{
+    color: white;
+    display: flex;
+    margin: 2em auto;
+    height: 30px;
+    width: 180px;
+    border: none;
+    position: relative;
+    box-shadow: 12px 7px 22px #c0d1f1;
+    cursor: pointer;
+    outline: none;
+    background-color: #4B6EC5;
+    border-radius: 10px;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    transition-duration: .1s;
+
+
+}
+.button-new:hover{
+    transform:scale(1.1);
+    border: 1px solid white;
+}
 
 table tr {
     background-color: #f8f8f8;
     border: 1px solid #ddd;
     padding: .35em;
+
 }
 
 table th,
