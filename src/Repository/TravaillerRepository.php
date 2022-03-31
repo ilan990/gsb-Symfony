@@ -35,6 +35,24 @@ class TravaillerRepository extends ServiceEntityRepository
         ;
     }
     */
+    public function TravaillerNameVisiteur(){
+        $entityManager = $this->getEntityManager();
+
+        $query = $entityManager->createQuery(
+            dql:'select v.nom,v.prenom,v.id from
+            App\Entity\Visiteur AS v'
+        );
+        return $query->getResult();
+    }
+    public function TravaillerNameRegion(){
+        $entityManager = $this->getEntityManager();
+
+        $query = $entityManager->createQuery(
+            dql:'select r.nom_region,r.id from
+            App\Entity\Region AS r'
+        );
+        return $query->getResult();
+    }
 
     /*
     public function findOneBySomeField($value): ?Travailler

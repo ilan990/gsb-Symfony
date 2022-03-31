@@ -32,7 +32,7 @@ class RegionController extends AbstractController
         $nameSecteur = $regionRepository -> NameSecteur();
 
         $region= new Region();
-
+        dd($nameSecteur);
         if ($request->request->get("region")){
             $region= new Region();
 

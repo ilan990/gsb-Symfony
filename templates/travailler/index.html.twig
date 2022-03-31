@@ -1,20 +1,41 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello TravaillerController!{% endblock %}
+{% block title %}Travailler index{% endblock %}
 
 {% block body %}
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
+    <h1>Travailler index</h1>
 
-<div class="example-wrapper">
-    <h1>Hello {{ controller_name }}! ✅</h1>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Id_vis</th>
+                <th>DateEmbauche</th>
+                <th>Id_region</th>
+                <th>Role_tra</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for travailler in travaillers %}
+            <tr>
+                <td>{{ travailler.id }}</td>
+                <td>{{ travailler.idVis }}</td>
+                <td>{{ travailler.dateEmbauche ? travailler.dateEmbauche|date('Y-m-d') : '' }}</td>
+                <td>{{ travailler.idRegion }}</td>
+                <td>{{ travailler.roleTra }}</td>
+                <td>
+                    <a href="{{ path('travailler_show', {'id': travailler.id}) }}">show</a>
+                    <a href="{{ path('travailler_edit', {'id': travailler.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="6">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
 
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code><a href="{{ 'D:/BTS SIO/2ème année/Foujols/projet/bts-alt-g3-2022/src/Controller/TravaillerController.php'|file_link(0) }}">src/Controller/TravaillerController.php</a></code></li>
-        <li>Your template at <code><a href="{{ 'D:/BTS SIO/2ème année/Foujols/projet/bts-alt-g3-2022/templates/travailler/index.html.twig'|file_link(0) }}">templates/travailler/index.html.twig</a></code></li>
-    </ul>
-</div>
+    <a href="{{ path('travailler_new') }}">Create new</a>
 {% endblock %}

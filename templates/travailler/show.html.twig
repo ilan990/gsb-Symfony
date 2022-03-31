@@ -1,0 +1,38 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Travailler{% endblock %}
+
+{% block body %}
+    <h1>Travailler</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ travailler.id }}</td>
+            </tr>
+            <tr>
+                <th>Id_vis</th>
+                <td>{{ travailler.idVis }}</td>
+            </tr>
+            <tr>
+                <th>DateEmbauche</th>
+                <td>{{ travailler.dateEmbauche ? travailler.dateEmbauche|date('Y-m-d') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Id_region</th>
+                <td>{{ travailler.idRegion }}</td>
+            </tr>
+            <tr>
+                <th>Role_tra</th>
+                <td>{{ travailler.roleTra }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('travailler_index') }}">back to list</a>
+
+    <a href="{{ path('travailler_edit', {'id': travailler.id}) }}">edit</a>
+
+    {{ include('travailler/_delete_form.html.twig') }}
+{% endblock %}
