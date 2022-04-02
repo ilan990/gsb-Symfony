@@ -4,6 +4,7 @@ namespace App\Repository;
 
 use App\Entity\Travailler;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
+use Doctrine\ORM\Query\ResultSetMapping;
 use Doctrine\Persistence\ManagerRegistry;
 
 /**
@@ -53,7 +54,20 @@ class TravaillerRepository extends ServiceEntityRepository
         );
         return $query->getResult();
     }
-
+    public function TravaillerListeNom(){
+        //SELECT nom,prenom,region.nom_region FROM `visiteur`
+        //INNER JOIN travailler on id_vis=visiteur.id
+        //INNER JOIN Region on travailler.id_region = region.id
+        $entityManager = $this->getEntityManager()->getConnection();
+        $query = '
+        SELECT travailler.id, nom,prenom,travailler.date_embauche,region.nom_region,travailler.role_tra FROM `visiteur`
+        INNER JOIN travailler on id_vis=visiteur.id
+        INNER JOIN Region on travailler.id_region = region.id
+        ';
+        $stmt=$entityManager->prepare($query);
+        $rest=$stmt->executeQuery();
+        return $rest->fetchAllAssociative();
+    }
     /*
     public function findOneBySomeField($value): ?Travailler
     {

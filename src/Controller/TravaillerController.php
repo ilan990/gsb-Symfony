@@ -17,8 +17,12 @@ class TravaillerController extends AbstractController
     #[Route('/', name: 'travailler_index', methods: ['GET'])]
     public function index(TravaillerRepository $travaillerRepository): Response
     {
+
+        $travaillerNomVisiteur= $travaillerRepository -> TravaillerListeNom();
+
         return $this->render('travailler/index.html.twig', [
             'travaillers' => $travaillerRepository->findAll(),
+            'nom'=>$travaillerNomVisiteur,
         ]);
     }
 
@@ -31,24 +35,22 @@ class TravaillerController extends AbstractController
         $travailler = new Travailler();
 
             if ($request->request->get("travailler")) {
-
                 $travailler = new Travailler();
-
                 $travailler->setIdVis($request->request->get("code_visiteur"));
-                $theDate    = new \DateTime($request->request->get("travailler")["dateEmbauche"]["year"] .'-'.$request->request->get("travailler")["dateEmbauche"]["month"] . '-' . $request->request->get("travailler")["dateEmbauche"]["day"]);
-
-                $travailler->setDateEmbauche(date_format($theDate, 'Y-d-m'));
+                $theDate    = \DateTime::createFromFormat('Y-m-d',$request->request->get("travailler")["dateEmbauche"]["year"] .'-'.$request->request->get("travailler")["dateEmbauche"]["month"] . '-' . $request->request->get("travailler")["dateEmbauche"]["day"]);
+                $travailler->setDateEmbauche($theDate);
                 $travailler->setIdRegion($request->request->get("code_region"));
                 $travailler->setRoleTra($request->request->get("travailler")["role_tra"]);
                 $entityManager = $this->getDoctrine()->getManager();
                 $entityManager->persist($travailler);
                 $entityManager->flush();
+                return $this->redirectToRoute('travailler_index', [], Response::HTTP_SEE_OTHER);
+
             }
         return $this->renderForm('travailler/new.html.twig', [
             'travailler' => $travailler,
             'visiteur'=>$travaillerNomVisiteur,
             'region'=>$travaillerNomRegion,
-
         ]);
 
 

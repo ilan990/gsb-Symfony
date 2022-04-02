@@ -189,7 +189,7 @@ header ul li:hover {
 }
 .accueil-liste img,.accueil-ajout img,.accueil-statistiques img{
     height:auto;
-    width: 80px;
+    width: 60px;
 }
 .accueil-statistiques{
     width:100%;
@@ -270,7 +270,7 @@ header ul li:hover {
     width:80px;
 }
 .ajout-region p,.ajout-secteur p,.ajout-visiteur p{
-    margin-bottom: 2vh;
+    margin: 5px;
 }
 
 
