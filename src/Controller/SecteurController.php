@@ -69,7 +69,7 @@ class SecteurController extends AbstractController
         ]);
     }
 
-    #[Route('/{id}', name: 'secteur_delete', methods: ['POST'])]
+    /**#[Route('/{id}', name: 'secteur_delete', methods: ['POST'])]
     public function delete(Request $request, Secteur $secteur): Response
     {
         if ($this->isCsrfTokenValid('delete'.$secteur->getId(), $request->request->get('_token'))) {
@@ -79,5 +79,5 @@ class SecteurController extends AbstractController
         }
 
         return $this->redirectToRoute('secteur_index', [], Response::HTTP_SEE_OTHER);
-    }
+    }*/
 }

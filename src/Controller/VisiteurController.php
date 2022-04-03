@@ -69,7 +69,7 @@ class VisiteurController extends AbstractController
         ]);
     }
 
-    #[Route('/{id}', name: 'visiteur_delete', methods: ['POST'])]
+   /** #[Route('/{id}', name: 'visiteur_delete', methods: ['POST'])]
     public function delete(Request $request, Visiteur $visiteur): Response
     {
         if ($this->isCsrfTokenValid('delete'.$visiteur->getId(), $request->request->get('_token'))) {
@@ -79,5 +79,5 @@ class VisiteurController extends AbstractController
         }
 
         return $this->redirectToRoute('visiteur_index', [], Response::HTTP_SEE_OTHER);
-    }
+    }*/
 }

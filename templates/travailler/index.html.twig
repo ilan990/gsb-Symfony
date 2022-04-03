@@ -27,9 +27,9 @@
                 <td>{{ travailler["date_embauche"]}}</td>
                 <td>{{ travailler["nom_region"] }}</td>
                 <td>{{ travailler["role_tra"] }}</td>
-                <td>
-                    <a href="{{ path('travailler_show', {'id': travailler["id"]}) }}">show</a>
-                    <a href="{{ path('travailler_edit', {'id': travailler["id"]}) }}">edit</a>
+                <td class="td-voir-edit">
+                    <a href="{{ path('travailler_show', {'id': travailler["id"]}) }}" class="btn-voir-edit">Voir</a>
+                    {# <a href="{{ path('travailler_edit', {'id': travailler["id"]}) }}">edit</a> #}
                 </td>
             </tr>
         {% else %}
@@ -40,5 +40,5 @@
         </tbody>
     </table>
 
-    <a href="{{ path('travailler_new') }}">Create new</a>
+    <a href="{{ path('travailler_new') }}" class="btn">Nouveau Travail</a>
 {% endblock %}

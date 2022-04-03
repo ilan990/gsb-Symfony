@@ -65,7 +65,7 @@ class TravaillerController extends AbstractController
         ]);
     }
 
-    #[Route('/{id}/edit', name: 'travailler_edit', methods: ['GET','POST'])]
+    /**  #[Route('/{id}/edit', name: 'travailler_edit', methods: ['GET','POST'])]
     public function edit(Request $request, Travailler $travailler): Response
     {
         $form = $this->createForm(TravaillerType::class, $travailler);
@@ -81,9 +81,9 @@ class TravaillerController extends AbstractController
             'travailler' => $travailler,
             'form' => $form,
         ]);
-    }
+    } */
 
-    #[Route('/{id}', name: 'travailler_delete', methods: ['POST'])]
+    /**#[Route('/{id}', name: 'travailler_delete', methods: ['POST'])]
     public function delete(Request $request, Travailler $travailler): Response
     {
         if ($this->isCsrfTokenValid('delete'.$travailler->getId(), $request->request->get('_token'))) {
@@ -93,5 +93,5 @@ class TravaillerController extends AbstractController
         }
 
         return $this->redirectToRoute('travailler_index', [], Response::HTTP_SEE_OTHER);
-    }
+    }*/
 }

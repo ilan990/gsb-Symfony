@@ -14,7 +14,7 @@
                     <div id="region">
 
                         <div><label for="region_CodeSecteur">Code secteur</label>
-                            <select name="code_secteur" >
+                            <select name="code_secteur" class="select-style">
                                 {% for name in nameSecteur %}
                                     <option value="{{ name["id"] }}">{{ name["libelle"] }}</option>
                                 {%  endfor %}

@@ -8,6 +8,7 @@
 h4{
     margin: 5px 0;
 }
+h1{text-align: center}
 
 body {
     background-color: #ECF1FA;
@@ -228,11 +229,13 @@ header ul li:hover {
     color: #363636;
     font-family: sans-serif;
 }
-
+.b-gris:hover {
+    border: 1px solid #ccd7ff;
+}
 .controllerAjout{
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
+    justify-content: space-evenly;
     text-align: center;
     align-items: center;
     height: 90vh;
@@ -247,6 +250,7 @@ header ul li:hover {
 .bouttonsAjout{
     width: 85vw;
     display:flex;
+    flex-flow: wrap;
     justify-content: space-around;
 
 }
@@ -254,13 +258,15 @@ header ul li:hover {
     display: flex;
     flex-direction: column;
     justify-content: space-around;
-    height: 33vh;
-    width: 43vw;
+    height: 250px;
+    width: 200px;
     align-items: center;
     background-color: white;
     border-radius: 15px;
-    margin: 0 5vw 10vh 5vw;
+    margin: 20px;
     cursor:pointer;
+    min-width: 18vw;
+    min-height: 20vh;
 }
 .titleAjout h1{
     margin-bottom: 1vh;
@@ -273,8 +279,35 @@ header ul li:hover {
     margin: 5px;
 }
 
-
-
+#region{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+.select-style{
+    background-color: #DDE0E2;
+    border-radius: 50px;
+    border: #DDE0E2;
+    height: 25px;
+    margin: 5px;
+    width: 35vh;
+    padding-left: 13px;
+}
+.select-date{
+    background-color: #DDE0E2;
+    border-radius: 50px;
+    border: #DDE0E2;
+    height: 25px;
+    margin: 5px 0;
+    width: 11.66vh;
+    padding-left: 13px;
+}
+#travailler{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: end;
+}
 @media only screen and (max-height: 760px) {
     .accueil-statistiques,.accueil-ajout,.accueil-liste{
         font-size: 1.5vh;
@@ -315,7 +348,7 @@ header ul li:hover {
         width: 50px;
     }
     .titleAjout{
-        margin-top: 1vh;
+        margin-top: 25vh;
     }
     .bouttonsAjout{
         width: 85vw;
@@ -324,13 +357,17 @@ header ul li:hover {
 }
 
 .modalAjout{
-    height:60vh;
+    height:600px;
     width: 90vh;
     background-color: white;
     border-radius: 25px;
     text-align: center;
     position: relative;
-    z-index:2
+    z-index:2;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 
@@ -365,6 +402,31 @@ input{
     outline: none;
     background-color: #4B6EC5 ;
     border-radius: 10px;
+    text-decoration: none;
+    text-align: center;
+}
+
+.btn-voir-edit{
+    color: white;
+    display: block;
+    height: 25px;
+    width: 100px;
+    border: none;
+    position: relative;
+    transition: all .2s ease-out;
+    -webkit-transition: all .2s ease-out;
+    box-shadow: 0 0 .25em #333;
+    cursor: pointer;
+    outline: none;
+    background-color: #4B6EC5 ;
+    border-radius: 10px;
+    text-decoration: none;
+    text-align: center;
+    margin-bottom: 10px;
+}
+.btn-voir-edit:hover,.btn:hover {
+    transform: scale(1.1);
+    transition: 0.3s;
 }
 .alignDiv img{
     position: relative;
@@ -422,6 +484,10 @@ table th,
 table td {
     padding: .625em;
     text-align: center;
+}
+.td-voir-edit{
+    display: flex;
+    justify-content: space-evenly;
 }
 
 table th {

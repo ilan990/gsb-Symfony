@@ -32,7 +32,7 @@ class RegionController extends AbstractController
         $nameSecteur = $regionRepository -> NameSecteur();
 
         $region= new Region();
-        dd($nameSecteur);
+
         if ($request->request->get("region")){
             $region= new Region();
 
@@ -79,7 +79,7 @@ class RegionController extends AbstractController
         ]);
     }
 
-    #[Route('/{id}', name: 'region_delete', methods: ['POST'])]
+   /** #[Route('/{id}', name: 'region_delete', methods: ['POST'])]
     public function delete(Request $request, Region $region): Response
     {
         if ($this->isCsrfTokenValid('delete'.$region->getId(), $request->request->get('_token'))) {
@@ -89,5 +89,5 @@ class RegionController extends AbstractController
         }
 
         return $this->redirectToRoute('region_index', [], Response::HTTP_SEE_OTHER);
-    }
+    } */
 }

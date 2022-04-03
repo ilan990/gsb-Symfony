@@ -9,14 +9,16 @@
 
             <form name="travailler" method="post">
                 <div id="travailler">
-                    <div><label for="travailler_id_vis" class="required">Visiteur</label> <select name="code_visiteur" >
+                    <div><label for="travailler_id_vis" class="required">Visiteur</label>
+                        <select name="code_visiteur" class="select-style" >
                             {% for visiteur in visiteur %}
                                 <option value="{{ visiteur["id"] }}">{{ visiteur["nom"] }} {{ visiteur["prenom"] }}</option>
                             {%  endfor %}
                         </select>
                     </div>
-                    <div><label class="required">Date embauche</label>
-                        <div id="travailler_dateEmbauche"><select id="travailler_dateEmbauche_month"
+                    <div style="display: flex;margin-right: 5px;"><label class="required" style="align-self: center">Date embauche</label>
+                        <div id="travailler_dateEmbauche">
+                            <select class=" select-date" id="travailler_dateEmbauche_month"
                                                                   name="travailler[dateEmbauche][month]">
                                 <option value="1">Jan</option>
                                 <option value="2">Feb</option>
@@ -30,7 +32,8 @@
                                 <option value="10">Oct</option>
                                 <option value="11">Nov</option>
                                 <option value="12">Dec</option>
-                            </select><select id="travailler_dateEmbauche_day" name="travailler[dateEmbauche][day]">
+                            </select>
+                            <select id="travailler_dateEmbauche_day" class=" select-date" name="travailler[dateEmbauche][day]">
                                 <option value="1">1</option>
                                 <option value="2">2</option>
                                 <option value="3">3</option>
@@ -62,7 +65,8 @@
                                 <option value="29">29</option>
                                 <option value="30">30</option>
                                 <option value="31">31</option>
-                            </select><select id="travailler_dateEmbauche_year" name="travailler[dateEmbauche][year]">
+                            </select>
+                            <select id="travailler_dateEmbauche_year" class=" select-date" name="travailler[dateEmbauche][year]">
                                 <option value="2017">2017</option>
                                 <option value="2018">2018</option>
                                 <option value="2019">2019</option>
@@ -74,15 +78,17 @@
                                 <option value="2025">2025</option>
                                 <option value="2026">2026</option>
                                 <option value="2027">2027</option>
-                            </select></div>
+                            </select>
+                        </div>
                     </div>
-                    <div><label for="travailler_id_region" class="required">Id region</label><select name="code_region" >
+                    <div><label for="travailler_id_region" class="required">Id region</label>
+                        <select name="code_region" class="select-style">
                             {% for region in region %}
                                 <option value="{{ region["id"] }}">{{ region["nom_region"] }}</option>
                             {%  endfor %}
                         </select>
                     </div>
-                    <div><label for="travailler_role_tra" class="required">Role tra</label><input type="text"
+                    <div><label for="travailler_role_tra" class="required">Métier</label><input type="text"
                                                                                                   id="travailler_role_tra"
                                                                                                   name="travailler[role_tra]"
                                                                                                   required="required"
@@ -95,7 +101,7 @@
             </form>
 
 
-            <a href="/travailler/">back to list</a>
+            <a href="/travailler/" class="btn">back to list</a>
         </div>
     </div>
 
