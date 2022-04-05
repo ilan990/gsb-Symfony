@@ -31,6 +31,16 @@ class VisiteurRepository extends ServiceEntityRepository
         return $query->getResult();
     }
 
+    //Statistiques nombre de visiteurs embauchés par année
+    public function VisiteurParAn(){
+        $entityManager = $this->getEntityManager()->getConnection();
+        $query = '  SELECT year(date_embauche)as `Date Embauche`,COUNT(visiteur.id) as Total FROM visiteur
+                    GROUP BY year(date_embauche)';
+        $stmt=$entityManager->prepare($query);
+        $rest=$stmt->executeQuery();
+        return $rest->fetchAllAssociative();
+    }
+
     // /**
     //  * @return Visiteur[] Returns an array of Visiteur objects
     //  */

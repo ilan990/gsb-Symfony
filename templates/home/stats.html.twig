@@ -1,0 +1,103 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Statistiques{% endblock %}
+
+{% block body %}
+    <canvas id="myChart" width="1000" height="200"></canvas>
+    <canvas id="mygraph" width="1000" height="200"></canvas>
+    <script>
+        let nomRegionTab=[];
+        let totalRegionTab=[];
+        {% for travail in travauxParRegion %}
+            nomRegion = nomRegionTab.push('{{ travail['Nom Region'] }}')
+            totalRegion=totalRegionTab.push({{ travail['Total'] }});
+
+        {% endfor %}
+
+
+        const ctx = document.getElementById('myChart').getContext('2d');
+        const myChart = new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: nomRegionTab,
+                datasets: [{
+                    label: 'Nombre de Travaux par Région',
+                    data: totalRegionTab,
+                    backgroundColor: [
+                        'rgba(255, 99, 132, 0.2)',
+                        'rgba(54, 162, 235, 0.2)',
+                        'rgba(26,255,26,0.2)',
+                        'rgba(126,54,235,0.2)',
+                        'rgba(255, 206, 86, 0.2)'
+
+                    ],
+                    borderColor: [
+                        'rgba(255, 99, 132, 1)',
+                        'rgba(54, 162, 235, 1)',
+                        'rgba(26,255,26,1)',
+                        'rgba(126,54,235,0.2)',
+                        'rgba(255, 206, 86, 1)'
+                    ],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                maintainAspectRatio: true,
+                responsive: false,
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+
+        let dateVisiteurTab=[];
+        let totalVisiteurTab=[];
+        {% for visiteur in visiteursParAn %}
+        DateVisiteur = dateVisiteurTab.push('{{ visiteur['Date Embauche'] }}')
+        totalVisiteur=totalVisiteurTab.push({{ visiteur['Total'] }});
+
+        {% endfor %}
+
+
+        const deuxiemegraph = document.getElementById('mygraph').getContext('2d');
+        const mygraph = new Chart(deuxiemegraph, {
+            type: 'bar',
+            data: {
+                labels: dateVisiteurTab,
+                datasets: [{
+                    label: 'Nombre de visiteur embauché par An',
+                    data: totalVisiteurTab,
+                    backgroundColor: [
+                        'rgba(255, 99, 132, 0.2)',
+                        'rgba(54, 162, 235, 0.2)',
+                        'rgba(26,255,26,0.2)',
+                        'rgba(126,54,235,0.2)',
+                        'rgba(255, 206, 86, 0.2)'
+
+                    ],
+                    borderColor: [
+                        'rgba(255, 99, 132, 1)',
+                        'rgba(54, 162, 235, 1)',
+                        'rgba(26,255,26,1)',
+                        'rgba(126,54,235,0.2)',
+                        'rgba(255, 206, 86, 1)'
+                    ],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                maintainAspectRatio: true,
+                responsive: false,
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+    </script>
+
+
+{% endblock %}

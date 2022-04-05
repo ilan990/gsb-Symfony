@@ -55,9 +55,6 @@ class TravaillerRepository extends ServiceEntityRepository
         return $query->getResult();
     }
     public function TravaillerListeNom(){
-        //SELECT nom,prenom,region.nom_region FROM `visiteur`
-        //INNER JOIN travailler on id_vis=visiteur.id
-        //INNER JOIN Region on travailler.id_region = region.id
         $entityManager = $this->getEntityManager()->getConnection();
         $query = '
         SELECT travailler.id, nom,prenom,travailler.date_embauche,region.nom_region,travailler.role_tra FROM `visiteur`
@@ -68,15 +65,17 @@ class TravaillerRepository extends ServiceEntityRepository
         $rest=$stmt->executeQuery();
         return $rest->fetchAllAssociative();
     }
-    /*
-    public function findOneBySomeField($value): ?Travailler
-    {
-        return $this->createQueryBuilder('t')
-            ->andWhere('t.exampleField = :val')
-            ->setParameter('val', $value)
-            ->getQuery()
-            ->getOneOrNullResult()
-        ;
+
+    //Statistiques nombre de travaux par région
+    public function TravauxParRegion(){
+        $entityManager = $this->getEntityManager()->getConnection();
+        $query = '  SELECT nom_region AS `Nom Region`, COUNT(id_region) AS Total FROM `travailler`
+                    INNER JOIN region on region.id = id_region
+                    GROUP BY id_region
+                    ORDER BY count(id_region)DESC';
+        $stmt=$entityManager->prepare($query);
+        $rest=$stmt->executeQuery();
+        return $rest->fetchAllAssociative();
     }
-    */
+
 }
