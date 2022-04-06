@@ -62,9 +62,26 @@ class RegionController extends AbstractController
     }
 
     #[Route('/{id}/edit', name: 'region_edit', methods: ['GET','POST'])]
-    public function edit(Request $request, Region $region): Response
+    public function edit(Request $request, Region $region, RegionRepository $regionRepository): Response
     {
-        $form = $this->createForm(RegionType::class, $region);
+        $nameSecteur = $regionRepository -> NameSecteur();
+
+        
+
+
+        if ($request->request->get("region")){
+
+
+            $region->setCodeSecteur($request->request->get("code_secteur"));
+            $region->setNomRegion($request->request->get("region")["nom_region"]);
+            $entityManager = $this->getDoctrine()->getManager();
+            $entityManager->persist($region);
+            $entityManager->flush();
+
+            return $this->redirectToRoute('region_index', [], Response::HTTP_SEE_OTHER);
+        }
+        /**     $form = $this->createForm(RegionType::class, $region);
+
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
@@ -72,10 +89,11 @@ class RegionController extends AbstractController
 
             return $this->redirectToRoute('region_index', [], Response::HTTP_SEE_OTHER);
         }
-
+**/
         return $this->renderForm('region/edit.html.twig', [
             'region' => $region,
-            'form' => $form,
+            //'form' => $form,
+            'nameSecteur' => $nameSecteur,
         ]);
     }
 
