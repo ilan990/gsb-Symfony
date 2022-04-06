@@ -3,6 +3,7 @@
 {% block title %}Statistiques{% endblock %}
 
 {% block body %}
+    <div style="display: flex;flex-direction: column;justify-content: space-evenly;align-items: center;height: 90vh;">
     <canvas id="myChart" width="1000" height="200"></canvas>
     <canvas id="mygraph" width="1000" height="200"></canvas>
     <script>
@@ -99,5 +100,5 @@
         });
     </script>
 
-
+    </div>
 {% endblock %}

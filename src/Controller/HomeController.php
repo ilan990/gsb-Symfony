@@ -35,9 +35,10 @@ class HomeController extends AbstractController
         ]);
     }
     #[Route('/Statistiques', name: 'Statistiques')]
-    public function Stats(Request $request, TravaillerRepository $TravaillerRepository,VisiteurRepository $visiteurRepository): Response
+    public function Stats(TravaillerRepository $TravaillerRepository,VisiteurRepository $visiteurRepository): Response
     {
         $travauxParRegion= $TravaillerRepository ->TravauxParRegion();
+
         $visiteurParAn = $visiteurRepository->VisiteurParAn();
         //Date Embauche Total
 

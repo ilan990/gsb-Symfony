@@ -68,19 +68,21 @@ header ul li:hover {
 }
 
 #login {
-    border: 1px solid green;
+    border: 1px solid #01a101;
+    background-color: green;
 }
 
 #signup {
-    border: 1px solid #ff3860;
+    border: 1px solid #fd4d6e;
+    background-color: #ff3860;
 }
 
 #signup a {
-    color: #ff3860;
+    color: white;
 }
 
 #login a {
-    color: green;
+    color: white;
 }
 
 #hamburger-icon {
