@@ -19,6 +19,22 @@ class VisiteurRepository extends ServiceEntityRepository
         parent::__construct($registry, Visiteur::class);
     }
 
+    public function NameLab(){
+
+
+        $entityManager = $this->getEntityManager()->getConnection();
+        $query = '  SELECT labo.id as `idLab`,nom from labo';
+        $stmt=$entityManager->prepare($query);
+        $rest=$stmt->executeQuery();
+        return $rest->fetchAllAssociative();
+    }
+    public function NameSec(){
+        $entityManager = $this->getEntityManager()->getConnection();
+        $query = '  SELECT secteur.id as `idSec`,libelle from secteur';
+        $stmt=$entityManager->prepare($query);
+        $rest=$stmt->executeQuery();
+        return $rest->fetchAllAssociative();
+    }
     public function findByLabAndSecteur(){
         $entityManager = $this->getEntityManager();
 
@@ -30,7 +46,6 @@ class VisiteurRepository extends ServiceEntityRepository
 
         return $query->getResult();
     }
-
     //Statistiques nombre de visiteurs embauchés par année
     public function VisiteurParAn(){
         $entityManager = $this->getEntityManager()->getConnection();

@@ -23,13 +23,23 @@ class VisiteurController extends AbstractController
     }
 
     #[Route('/new', name: 'visiteur_new', methods: ['GET','POST'])]
-    public function new(Request $request): Response
+    public function new(Request $request,VisiteurRepository $visiteurRepository): Response
     {
+        $nameSecteur = $visiteurRepository->NameSec();
+        $nameLabo = $visiteurRepository->NameLab();
         $visiteur = new Visiteur();
-        $form = $this->createForm(Visiteur2Type::class, $visiteur);
-        $form->handleRequest($request);
 
-        if ($form->isSubmitted() && $form->isValid()) {
+        if ($request->request->get("visiteur2")) {
+            $visiteur = new Visiteur();
+            $visiteur->setNom($request->request->get('visiteur2')['nom']);
+            $visiteur->setPrenom($request->request->get('visiteur2')['prenom']);
+            $visiteur->setAdresse($request->request->get('visiteur2')['adresse']);
+            $visiteur->setCodePostal($request->request->get('visiteur2')['codePostal']);
+            $visiteur->setVille($request->request->get('visiteur2')['ville']);
+            $theDate    = \DateTime::createFromFormat('Y-m-d',$request->request->get("visiteur2")["dateEmbauche"]['date']["year"] .'-'.$request->request->get("visiteur2")["dateEmbauche"]['date']["month"] . '-' . $request->request->get("visiteur2")["dateEmbauche"]['date']["day"]);
+            $visiteur->setDateEmbauche($theDate);
+            $visiteur->setCodeSecteur($request->request->get('code_secteur'));
+            $visiteur->setLaboCode($request->request->get('code_labo'));
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($visiteur);
             $entityManager->flush();
@@ -39,7 +49,8 @@ class VisiteurController extends AbstractController
 
         return $this->renderForm('visiteur/new.html.twig', [
             'visiteur' => $visiteur,
-            'form' => $form,
+            "nameSecteur"=>$nameSecteur,
+            'nameLabo'=>$nameLabo,
         ]);
     }
 

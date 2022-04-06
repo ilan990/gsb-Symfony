@@ -39,6 +39,7 @@ class TravaillerController extends AbstractController
 
             if ($request->request->get("travailler")) {
                 $travailler = new Travailler();
+                dd($request->request->get("travailler"));
                 $travailler->setIdVis($request->request->get("code_visiteur"));
                 $theDate    = \DateTime::createFromFormat('Y-m-d',$request->request->get("travailler")["dateEmbauche"]["year"] .'-'.$request->request->get("travailler")["dateEmbauche"]["month"] . '-' . $request->request->get("travailler")["dateEmbauche"]["day"]);
                 $travailler->setDateEmbauche($theDate);
