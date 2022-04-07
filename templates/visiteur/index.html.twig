@@ -6,12 +6,12 @@
 
     <h1>Visiteur index</h1>
 
-
-    <table class="table">
+<div class="table-wrapper">
+    <table  class="fl-table">
         <thead>
             <tr>
-                <th style="width: 10vh">Id</th>
-                <th style="width: 13vh">Nom</th>
+                <th>Id</th>
+                <th>Nom</th>
                 <th>Prenom</th>
                 <th>Adresse</th>
                 <th>CodePostal</th>
@@ -46,6 +46,6 @@
         {% endfor %}
         </tbody>
     </table>
-
+</div>
     <a class="button-new" href="{{ path('visiteur_new') }}">Nouveau Visiteur</a>
 {% endblock %}

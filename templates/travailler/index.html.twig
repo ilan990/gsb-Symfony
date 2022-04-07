@@ -4,8 +4,8 @@
 
 {% block body %}
     <h1>Travailler index</h1>
-
-    <table class="table">
+<div class="table-wrapper">
+    <table class="fl-table">
         <thead>
             <tr>
                 <th>Id</th>
@@ -39,6 +39,7 @@
         {% endfor %}
         </tbody>
     </table>
+</div>
 
     <a href="{{ path('travailler_new') }}" class="btn">Nouveau Travail</a>
 {% endblock %}
