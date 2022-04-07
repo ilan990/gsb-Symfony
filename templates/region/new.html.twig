@@ -13,14 +13,14 @@
                 <form name="region" method="post">
                     <div id="region">
 
-                        <div><label for="region_CodeSecteur">Code secteur</label>
+                        <div><label for="region_CodeSecteur">Secteur</label>
                             <select name="code_secteur" class="select-style">
                                 {% for name in nameSecteur %}
                                     <option value="{{ name["id"] }}">{{ name["libelle"] }}</option>
                                 {%  endfor %}
                             </select>
                         </div>
-                        <div><label for="region_nom_region" class="required">Nom region</label><input type="text"
+                        <div><label for="region_nom_region" class="required">Region</label><input type="text"
                                                                                                       id="region_nom_region"
                                                                                                       name="region[nom_region]"
                                                                                                       required="required"

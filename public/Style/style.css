@@ -22,8 +22,10 @@ header a {
 
 header {
     padding: 0 20px;
-    background-color: #5988FF;
-    height: 10vh;
+    /*background-color: #5988FF;
+    height: 10vh;*/
+    background-color: #324960;
+    height: 9vh;
     display: flex;
     justify-content: space-between;
 }
@@ -73,8 +75,8 @@ header ul li:hover {
 }
 
 #signup {
-    border: 1px solid #fd4d6e;
-    background-color: #ff3860;
+ 
+    background-color: #882035;
 }
 
 #signup a {
@@ -392,14 +394,11 @@ input{
 .btn{
     color: white;
     display: block;
-    margin: 10px auto;
+    margin: auto;
     height: 25px;
     width: 30vh;
-    border: none;
-    position: relative;
     transition: all .2s ease-out;
     -webkit-transition: all .2s ease-out;
-    box-shadow: 0 0 .25em #333;
     cursor: pointer;
     outline: none;
     background-color: #4B6EC5 ;
@@ -417,7 +416,6 @@ input{
     position: relative;
     transition: all .2s ease-out;
     -webkit-transition: all .2s ease-out;
-    box-shadow: 0 0 .25em #333;
     cursor: pointer;
     outline: none;
     background-color: #4B6EC5 ;
