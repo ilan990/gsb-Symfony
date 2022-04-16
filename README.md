@@ -12,7 +12,4 @@ $ symfony console doctrine:migrations:migrate
 $ symfony console doctrine:fixtures:load
 
 ```
-## TO DO LIST
 
-2. Drop down Menu
-6. Statistique
