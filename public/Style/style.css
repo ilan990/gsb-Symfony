@@ -5,6 +5,10 @@
     margin: 0;
     box-sizing: border-box;
 }
+h4{
+    margin: 5px 0;
+}
+h1{text-align: center}
 
 body {
     background-color: #ECF1FA;
@@ -18,8 +22,10 @@ header a {
 
 header {
     padding: 0 20px;
-    background-color: #5988FF;
-    height: 10vh;
+    /*background-color: #5988FF;
+    height: 10vh;*/
+    background-color: #324960;
+    height: 9vh;
     display: flex;
     justify-content: space-between;
 }
@@ -64,19 +70,21 @@ header ul li:hover {
 }
 
 #login {
-    border: 1px solid #498afb;
+    border: 1px solid #01a101;
+    background-color: green;
 }
 
 #signup {
-    border: 1px solid #ff3860;
+ 
+    background-color: #882035;
 }
 
 #signup a {
-    color: #ff3860;
+    color: white;
 }
 
 #login a {
-    color: green;
+    color: white;
 }
 
 #hamburger-icon {
@@ -185,8 +193,8 @@ header ul li:hover {
     cursor:pointer;
 }
 .accueil-liste img,.accueil-ajout img,.accueil-statistiques img{
-    width:38%;
-    height:auto
+    height:auto;
+    width: 60px;
 }
 .accueil-statistiques{
     width:100%;
@@ -225,11 +233,13 @@ header ul li:hover {
     color: #363636;
     font-family: sans-serif;
 }
-
+.b-gris:hover {
+    border: 1px solid #ccd7ff;
+}
 .controllerAjout{
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
+    justify-content: space-evenly;
     text-align: center;
     align-items: center;
     height: 90vh;
@@ -244,6 +254,7 @@ header ul li:hover {
 .bouttonsAjout{
     width: 85vw;
     display:flex;
+    flex-flow: wrap;
     justify-content: space-around;
 
 }
@@ -251,13 +262,15 @@ header ul li:hover {
     display: flex;
     flex-direction: column;
     justify-content: space-around;
-    height: 33vh;
-    width: 43vw;
+    height: 250px;
+    width: 200px;
     align-items: center;
     background-color: white;
     border-radius: 15px;
-    margin: 0 5vw 10vh 5vw;
+    margin: 20px;
     cursor:pointer;
+    min-width: 18vw;
+    min-height: 20vh;
 }
 .titleAjout h1{
     margin-bottom: 1vh;
@@ -267,11 +280,38 @@ header ul li:hover {
     width:80px;
 }
 .ajout-region p,.ajout-secteur p,.ajout-visiteur p{
-    margin-bottom: 2vh;
+    margin: 5px;
 }
 
-
-
+#region{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+.select-style{
+    background-color: #DDE0E2;
+    border-radius: 50px;
+    border: #DDE0E2;
+    height: 25px;
+    margin: 5px;
+    width: 35vh;
+    padding-left: 13px;
+}
+.select-date{
+    background-color: #DDE0E2;
+    border-radius: 50px;
+    border: #DDE0E2;
+    height: 25px;
+    margin: 5px 0;
+    width: 11.66vh;
+    padding-left: 13px;
+}
+#travailler{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: end;
+}
 @media only screen and (max-height: 760px) {
     .accueil-statistiques,.accueil-ajout,.accueil-liste{
         font-size: 1.5vh;
@@ -312,7 +352,7 @@ header ul li:hover {
         width: 50px;
     }
     .titleAjout{
-        margin-top: 1vh;
+        margin-top: 25vh;
     }
     .bouttonsAjout{
         width: 85vw;
@@ -321,13 +361,17 @@ header ul li:hover {
 }
 
 .modalAjout{
-    height:60vh;
+    height:600px;
     width: 90vh;
     background-color: white;
     border-radius: 25px;
     text-align: center;
     position: relative;
-    z-index:2
+    z-index:2;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 
@@ -350,102 +394,188 @@ input{
 .btn{
     color: white;
     display: block;
-    margin: 2em auto;
+    margin: auto;
     height: 25px;
-    width: 30vh;
-    border: none;
-    position: relative;
     width: 30vh;
     transition: all .2s ease-out;
     -webkit-transition: all .2s ease-out;
-    box-shadow: 0 0 .25em #333;
     cursor: pointer;
     outline: none;
     background-color: #4B6EC5 ;
     border-radius: 10px;
+    text-decoration: none;
+    text-align: center;
+}
+
+.btn-voir-edit{
+    color: white;
+    display: block;
+    height: 25px;
+    width: 100px;
+    border: none;
+    position: relative;
+    transition: all .2s ease-out;
+    -webkit-transition: all .2s ease-out;
+    cursor: pointer;
+    outline: none;
+    background-color: #4B6EC5 ;
+    border-radius: 10px;
+    text-decoration: none;
+    text-align: center;
+    margin: 10px auto;
+}
+.btn-voir-edit:hover,.btn:hover {
+    transform: scale(1.1);
+    transition: 0.3s;
 }
 .alignDiv img{
     position: relative;
     z-index:1
 }
-table {
-    border: 1px solid #ccc;
-    border-collapse: collapse;
-    margin: 0;
-    padding: 0;
-    width: 100%;
-    table-layout: fixed;
+
+.button-new{
+    color: white;
+    display: flex;
+    margin: 2em auto;
+    height: 30px;
+    width: 180px;
+    border: none;
+    position: relative;
+    box-shadow: 12px 7px 22px #c0d1f1;
+    cursor: pointer;
+    outline: none;
+    background-color: #4B6EC5;
+    border-radius: 10px;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    transition-duration: .1s;
+
+
+}
+.button-new:hover{
+    transform:scale(1.1);
+    border: 1px solid white;
 }
 
-table caption {
-    font-size: 1.5em;
-    margin: .5em 0 .75em;
-}
 
-table tr {
-    background-color: #f8f8f8;
-    border: 1px solid #ddd;
-    padding: .35em;
-}
-
-table th,
-table td {
-    padding: .625em;
+h2{
     text-align: center;
-}
-
-table th {
-    font-size: .85em;
-    letter-spacing: .1em;
+    font-size: 18px;
     text-transform: uppercase;
+    letter-spacing: 1px;
+    color: white;
+    padding: 30px 0;
 }
 
-@media screen and (max-width: 800px) {
-    table {
-        border: 0;
-    }
+/* Table Styles */
 
-    table caption {
-        font-size: 1.3em;
-    }
+.table-wrapper{
+    margin: 10px 19px 60px;
+    box-shadow: 0px 35px 50px rgba( 0, 0, 0, 0.2 );
+    overflow:scroll ;
+}
 
-    table thead {
-        border: none;
-        clip: rect(0 0 0 0);
-        height: 1px;
-        margin: -1px;
-        overflow: hidden;
-        padding: 0;
-        position: absolute;
-        width: 1px;
-    }
+.fl-table {
+    border-radius: 5px;
+    font-size: 12px;
+    font-weight: normal;
+    border: none;
+    border-collapse: collapse;
+    width: 100%;
+    max-width: 100%;
+    white-space: nowrap;
+    background-color: white;
+}
 
-    table tr {
-        border-bottom: 3px solid #ddd;
+.fl-table td, .fl-table th {
+    text-align: center;
+    padding: 8px;
+}
+
+.fl-table td {
+    border-right: 1px solid #f8f8f8;
+    font-size: 12px;
+}
+
+.fl-table thead th {
+    color: #ffffff;
+    background-color: #4B6EC5;
+
+}
+
+
+.fl-table thead th:nth-child(odd) {
+    color: #ffffff;
+    background: #324960;
+}
+
+.fl-table tr:nth-child(even) {
+    background: #F8F8F8;
+}
+
+/* Responsive */
+
+@media (max-width: 767px) {
+    .fl-table {
         display: block;
-        margin-bottom: .625em;
+        width: 100%;
     }
-
-    table td {
-        border-bottom: 1px solid #ddd;
+    .table-wrapper:before{
+        content: "Scroll horizontally >";
         display: block;
-        font-size: .8em;
         text-align: right;
+        font-size: 11px;
+        color: white;
+        padding: 0 0 10px;
     }
-
-    table td::before {
-        /*
-        * aria-label has no advantage, it won't be read inside a table
-        content: attr(aria-label);
-        */
-        content: attr(aria-label);
-
+    .fl-table thead, .fl-table tbody, .fl-table thead th {
+        display: block;
+    }
+    .fl-table thead th:last-child{
+        border-bottom: none;
+    }
+    .fl-table thead {
         float: left;
-        font-weight: bold;
-        text-transform: uppercase;
     }
-
-    table td:last-child {
-        border-bottom: 0;
+    .fl-table tbody {
+        width: auto;
+        position: relative;
+        overflow-x: auto;
+    }
+    .fl-table td, .fl-table th {
+        padding: 20px .625em .625em .625em;
+        height: 60px;
+        vertical-align: middle;
+        box-sizing: border-box;
+        overflow-x: hidden;
+        overflow-y: auto;
+        width: 120px;
+        font-size: 13px;
+        text-overflow: ellipsis;
+    }
+    .fl-table thead th {
+        text-align: left;
+        border-bottom: 1px solid #f7f7f9;
+    }
+    .fl-table tbody tr {
+        display: table-cell;
+    }
+    .fl-table tbody tr:nth-child(odd) {
+        background: none;
+    }
+    .fl-table tr:nth-child(even) {
+        background: transparent;
+    }
+    .fl-table tr td:nth-child(odd) {
+        background: #F8F8F8;
+        border-right: 1px solid #E6E4E4;
+    }
+    .fl-table tr td:nth-child(even) {
+        border-right: 1px solid #E6E4E4;
+    }
+    .fl-table tbody td {
+        display: block;
+        text-align: center;
     }
 }

@@ -42,3 +42,4 @@ security:
         - { path: ^/visiteur, roles: ROLE_USER }
         - { path: ^/secteur, roles: ROLE_USER }
         - { path: ^/region, roles: ROLE_USER }
+        - { path: /Statistiques, roles: ROLE_USER }

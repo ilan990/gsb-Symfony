@@ -13,7 +13,7 @@ use Symfony\Component\Routing\Annotation\Route;
 #[Route('/labo')]
 class LaboController extends AbstractController
 {
-    #[Route('/', name: 'labo_index', methods: ['GET'])]
+    /** #[Route('/', name: 'labo_index', methods: ['GET'])]
     public function index(LaboRepository $laboRepository): Response
     {
         return $this->render('labo/index.html.twig', [
@@ -79,4 +79,5 @@ class LaboController extends AbstractController
 
         return $this->redirectToRoute('labo_index', [], Response::HTTP_SEE_OTHER);
     }
+     **/
 }

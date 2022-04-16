@@ -16,20 +16,28 @@ class RegionController extends AbstractController
     #[Route('/', name: 'region_index', methods: ['GET'])]
     public function index(RegionRepository $regionRepository): Response
     {
+
         $regionAll = $regionRepository->findBySecteur();
+
         return $this->render('region/index.html.twig', [
             'regions' => $regionAll,
         ]);
     }
 
     #[Route('/new', name: 'region_new', methods: ['GET','POST'])]
-    public function new(Request $request): Response
+    public function new(Request $request, RegionRepository $regionRepository): Response
     {
-        $region = new Region    ();
-        $form = $this->createForm(RegionType::class, $region);
-        $form->handleRequest($request);
 
-        if ($form->isSubmitted() && $form->isValid()) {
+
+        $nameSecteur = $regionRepository -> NameSecteur();
+
+        $region= new Region();
+
+        if ($request->request->get("region")){
+            $region= new Region();
+
+            $region->setCodeSecteur($request->request->get("code_secteur"));
+            $region->setNomRegion($request->request->get("region")["nom_region"]);
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($region);
             $entityManager->flush();
@@ -38,9 +46,11 @@ class RegionController extends AbstractController
         }
 
         return $this->renderForm('region/new.html.twig', [
+            //'form' => $form,
+            'nameSecteur' => $nameSecteur,
             'region' => $region,
-            'form' => $form,
         ]);
+
     }
 
     #[Route('/{id}', name: 'region_show', methods: ['GET'])]
@@ -52,9 +62,26 @@ class RegionController extends AbstractController
     }
 
     #[Route('/{id}/edit', name: 'region_edit', methods: ['GET','POST'])]
-    public function edit(Request $request, Region $region): Response
+    public function edit(Request $request, Region $region, RegionRepository $regionRepository): Response
     {
-        $form = $this->createForm(RegionType::class, $region);
+        $nameSecteur = $regionRepository -> NameSecteur();
+
+        
+
+
+        if ($request->request->get("region")){
+
+
+            $region->setCodeSecteur($request->request->get("code_secteur"));
+            $region->setNomRegion($request->request->get("region")["nom_region"]);
+            $entityManager = $this->getDoctrine()->getManager();
+            $entityManager->persist($region);
+            $entityManager->flush();
+
+            return $this->redirectToRoute('region_index', [], Response::HTTP_SEE_OTHER);
+        }
+        /**     $form = $this->createForm(RegionType::class, $region);
+
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
@@ -62,14 +89,15 @@ class RegionController extends AbstractController
 
             return $this->redirectToRoute('region_index', [], Response::HTTP_SEE_OTHER);
         }
-
+**/
         return $this->renderForm('region/edit.html.twig', [
             'region' => $region,
-            'form' => $form,
+            //'form' => $form,
+            'nameSecteur' => $nameSecteur,
         ]);
     }
 
-    #[Route('/{id}', name: 'region_delete', methods: ['POST'])]
+   /** #[Route('/{id}', name: 'region_delete', methods: ['POST'])]
     public function delete(Request $request, Region $region): Response
     {
         if ($this->isCsrfTokenValid('delete'.$region->getId(), $request->request->get('_token'))) {
@@ -79,5 +107,5 @@ class RegionController extends AbstractController
         }
 
         return $this->redirectToRoute('region_index', [], Response::HTTP_SEE_OTHER);
-    }
+    } */
 }
