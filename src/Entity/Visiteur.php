@@ -43,7 +43,7 @@ class Visiteur
     private $ville;
 
     /**
-     * @ORM\Column(type="datetime")
+     * @ORM\Column(type="date")
      */
     private $dateEmbauche;
 
