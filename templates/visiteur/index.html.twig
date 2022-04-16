@@ -6,12 +6,12 @@
 
     <h1>Visiteur index</h1>
 
-
-    <table class="table">
+<div class="table-wrapper">
+    <table  class="fl-table">
         <thead>
             <tr>
-                <th style="width: 10vh">Id</th>
-                <th style="width: 13vh">Nom</th>
+                <th>Id</th>
+                <th>Nom</th>
                 <th>Prenom</th>
                 <th>Adresse</th>
                 <th>CodePostal</th>
@@ -34,9 +34,9 @@
                 <td>{{ visiteur[0].dateEmbauche is empty ? "" : visiteur[0].dateEmbauche|date("m/d/Y") }}</td>
                 <td>{{ visiteur['libelle']}}</td>
                 <td>{{ visiteur['nom']}}</td>
-                <td>
-                    <a href="{{ path('visiteur_show', {'id': visiteur[0].id}) }}">show</a>
-                    <a href="{{ path('visiteur_edit', {'id': visiteur[0].id}) }}">edit</a>
+                <td class="td-voir-edit">
+                    <a href="{{ path('visiteur_show', {'id': visiteur[0].id}) }}" class="btn-voir-edit">Voir</a>
+                    <a href="{{ path('visiteur_edit', {'id': visiteur[0].id}) }}" class="btn-voir-edit">Modifier</a>
                 </td>
             </tr>
         {% else %}
@@ -46,6 +46,6 @@
         {% endfor %}
         </tbody>
     </table>
-
-    <a href="{{ path('visiteur_new') }}">Create new</a>
+</div>
+    <a class="button-new" href="{{ path('visiteur_new') }}">Nouveau Visiteur</a>
 {% endblock %}

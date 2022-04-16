@@ -4,8 +4,8 @@
 
 {% block body %}
     <h1>Secteur index</h1>
-
-    <table class="table">
+<div class="table-wrapper">
+    <table class="fl-table">
         <thead>
             <tr>
                 <th>Id</th>
@@ -18,9 +18,9 @@
             <tr>
                 <td>{{ secteur.id }}</td>
                 <td>{{ secteur.libelle }}</td>
-                <td>
-                    <a href="{{ path('secteur_show', {'id': secteur.id}) }}">show</a>
-                    <a href="{{ path('secteur_edit', {'id': secteur.id}) }}">edit</a>
+                <td class="td-voir-edit">
+                    <a href="{{ path('secteur_show', {'id': secteur.id}) }}" class="btn-voir-edit">Voir</a>
+                    {# <a href="{{ path('secteur_edit', {'id': secteur.id}) }}" class="btn-voir-edit">Modifier</a> #}
                 </td>
             </tr>
         {% else %}
@@ -30,6 +30,6 @@
         {% endfor %}
         </tbody>
     </table>
-
-    <a href="{{ path('secteur_new') }}">Create new</a>
+</div>
+    <a class="button-new" href="{{ path('secteur_new') }}">Nouveau Secteur</a>
 {% endblock %}

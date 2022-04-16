@@ -22,22 +22,9 @@ class Visiteur2Type extends AbstractType
             ->add('codePostal')
             ->add('ville')
             ->add('dateEmbauche')
-            ->add('codeSecteur', EntityType::class, [
-                    'class' => Secteur::class,
-                    'choice_value' => 'id',
-                    'choice_label' => function (Secteur $sec) {
-                        return $sec->getLibelle();
-                    }
-                ]
-            )
-            ->add('laboCode', EntityType::class, [
-                    'class' => Labo::class,
-                    'choice_value' => 'id',
-                    'choice_label' => function (Labo $lab) {
-                        return $lab->getNom();
-                    }
-                ]
-            );}
+            ->add('codeSecteur')
+            ->add('laboCode');
+    }
 
 
 

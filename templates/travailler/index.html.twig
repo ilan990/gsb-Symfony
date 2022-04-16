@@ -1,0 +1,45 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Travailler index{% endblock %}
+
+{% block body %}
+    <h1>Travailler index</h1>
+<div class="table-wrapper">
+    <table class="fl-table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nom</th>
+                <th>Prenom</th>
+                <th>Date Embauche</th>
+                <th>Region</th>
+                <th>Métier</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for travailler in nom %}
+            <tr>
+
+                <td>{{ travailler["id"] }}</td>
+                <td>{{ travailler["nom"] }}</td>
+                <td>{{ travailler["prenom"] }}</td>
+                <td>{{ travailler["date_embauche"]}}</td>
+                <td>{{ travailler["nom_region"] }}</td>
+                <td>{{ travailler["role_tra"] }}</td>
+                <td class="td-voir-edit">
+                    <a href="{{ path('travailler_show', {'id': travailler["id"]}) }}" class="btn-voir-edit">Voir</a>
+                    {# <a href="{{ path('travailler_edit', {'id': travailler["id"]}) }}">edit</a> #}
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="6">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+    <a href="{{ path('travailler_new') }}" class="btn">Nouveau Travail</a>
+{% endblock %}
