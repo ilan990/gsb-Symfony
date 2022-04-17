@@ -472,7 +472,7 @@ h2{
 
 .table-wrapper{
     margin: 10px 19px 60px;
-    box-shadow: 0px 35px 50px rgba( 0, 0, 0, 0.2 );
+    height: 70vh;
     overflow:scroll ;
 }
 

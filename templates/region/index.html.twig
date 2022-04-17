@@ -22,7 +22,7 @@
                 <td>{{ region[0].NomRegion}}</td>
 
                 <td >
-                    <button class='btn' style="width:10vh!important" href="{{ path('region_edit', {'id': region[0].id}) }}">Modifier</button>
+                    <a class='btn' style="width:10vh!important" href="{{ path('region_edit', {'id': region[0].id}) }}">Modifier</a>
                 </td>
             </tr>
         {% else %}

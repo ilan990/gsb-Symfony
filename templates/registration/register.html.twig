@@ -7,8 +7,11 @@
         <div class="alert alert-danger" role="alert">{{ flashError }}</div>
     {% endfor %}
 
-    <h1>Register</h1>
 
+<div class="alignDiv">
+    <div class="modalAjout" style="padding-top: 2vh">
+        <h1 style="margin-bottom:10px">Register</h1>
+        <img src="img/login.png" style="width: 40vh">
     {{ form_start(registrationForm) }}
         {{ form_row(registrationForm.email) }}
         {{ form_row(registrationForm.plainPassword, {
@@ -18,4 +21,6 @@
 
         <button type="submit" class="btn">Register</button>
     {{ form_end(registrationForm) }}
+    </div>
+</div>
 {% endblock %}

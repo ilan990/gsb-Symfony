@@ -28,7 +28,7 @@ class DataFixtures extends Fixture
     // ...
     public function load(ObjectManager $manager)
     {
-        $secteur =["NORD","SUD","EST","OUEST","CENTRE"];
+        $secteur =["NORD","SUD","EST","OUEST","PARIS CENTRE"];
         $saveSecteur =[];
         $s=0;
         foreach($secteur as $vSecteur)
@@ -56,7 +56,7 @@ class DataFixtures extends Fixture
 
         //Labo
         $saveLabo=[];
-        for($i=0;$i<= 100;$i++){
+        for($i=0;$i<= 50;$i++){
             $labo = new Labo();
 
             $labo->setNom($faker->company());
@@ -68,7 +68,7 @@ class DataFixtures extends Fixture
 
         //visiteur
         $saveVisiteur=[];
-        for($i=0;$i<= 100;$i++){
+        for($i=0;$i<= 50;$i++){
             $visiteur = new Visiteur();
             $visiteur->setNom($faker->firstName());
             $visiteur->setPrenom($faker->lastName());
@@ -78,7 +78,7 @@ class DataFixtures extends Fixture
             $visiteur->setAdresse($add);
             $visiteur->setCodePostal(random_int(10000,99999));
             $visiteur->setVille($faker->city());
-            $visiteur->setDateEmbauche($faker->dateTimeBetween('2000/01/01',  '2021/12/31'));
+            $visiteur->setDateEmbauche($faker->dateTimeBetween('2009/01/01',  '2021/04/26'));
             $posSecteur = random_int(0,(count($saveSecteur)-1));
             $visiteur->setCodeSecteur($saveSecteur[$posSecteur]);
             $posLabo=random_int(0,(count($saveLabo)-1));
@@ -90,7 +90,7 @@ class DataFixtures extends Fixture
 
         //Travailler
 
-        for($i=0;$i<= 100;$i++){
+        for($i=0;$i<= 50;$i++){
             $travailler = new Travailler();
             $posRegion = random_int(0,(count($saveRegion) - 1));
             $travailler->setIdRegion($saveRegion[$posRegion]);
