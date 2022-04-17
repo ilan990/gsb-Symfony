@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\Travailler;
+use App\Repository\RegionRepository;
 use App\Repository\TravaillerRepository;
 use App\Repository\VisiteurRepository;
 use Faker\Factory;
@@ -40,17 +41,17 @@ class HomeController extends AbstractController
         ]);
     }
     #[Route('/Statistiques', name: 'Statistiques')]
-    public function Stats(TravaillerRepository $TravaillerRepository,VisiteurRepository $visiteurRepository): Response
+    public function Stats(TravaillerRepository $TravaillerRepository,VisiteurRepository $visiteurRepository, RegionRepository $regionRepository): Response
     {
         $travauxParRegion= $TravaillerRepository ->TravauxParRegion();
 
         $visiteurParAn = $visiteurRepository->VisiteurParAn();
-        //Date Embauche Total
-
+        $regionparSecteur=$regionRepository->RegionBySecteur();
         return $this->render('home/stats.html.twig', [
             'controller_name' => 'HomeController',
             'travauxParRegion'=>$travauxParRegion,
             'visiteursParAn'=>$visiteurParAn,
+            'regionbysecteur'=>$regionparSecteur,
         ]);
     }
 }

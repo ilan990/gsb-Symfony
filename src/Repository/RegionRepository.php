@@ -38,6 +38,16 @@ class RegionRepository extends ServiceEntityRepository
         );
         return $query->getResult();
     }
+    public function RegionBySecteur(){
+        $entityManager = $this->getEntityManager()->getConnection();
+        $query = '  SELECT COUNT(region.nom_region) as Total,secteur.libelle FROM `region`
+                    INNER JOIN secteur on secteur.id = region.code_secteur 
+                    GROUP BY region.code_secteur';
+        $stmt=$entityManager->prepare($query);
+        $rest=$stmt->executeQuery();
+        return $rest->fetchAllAssociative();
+
+    }
 
 
     // /**
