@@ -1,9 +1,8 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Travailler index{% endblock %}
+{% block title %}Travailler{% endblock %}
 
 {% block body %}
-    <h1>Travailler index</h1>
 <div class="table-wrapper">
     <table class="fl-table">
         <thead>
@@ -29,7 +28,6 @@
                 <td>{{ travailler["role_tra"] }}</td>
                 <td class="td-voir-edit">
                     <a href="{{ path('travailler_show', {'id': travailler["id"]}) }}" class="btn-voir-edit">Voir</a>
-                    {# <a href="{{ path('travailler_edit', {'id': travailler["id"]}) }}">edit</a> #}
                 </td>
             </tr>
         {% else %}
